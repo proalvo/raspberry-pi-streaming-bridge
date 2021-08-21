@@ -3,12 +3,14 @@
 With streaming bridge you can receive RTMP steam e.g. from OBS and convert it HDMI interface provided by Raspberry Pi 4.
 
 Steps
-1. Install Raspberry OS https://www.raspberrypi.org/software/
+1. Install Raspberry OS
 2. Configure HDMI interface
 3. Configure nginx
 4. Install and configure stunne4 for the Facebook streaming
 
 # Install Raspberry Pi
+
+https://www.raspberrypi.org/software/
 
 # Configure HDMI
 
@@ -101,7 +103,7 @@ sudo nginx -t start
 or reload the configuration withour interruption of the nginx server
 ```
 sudo nginx -s reload 
-
+```
 
 ## Install and configure Stunnel
 
@@ -155,7 +157,7 @@ In case you need to stop the stunnel
 sudo systemctl start stunnel4.service
 ```
 
-##OBS configuration
+## OBS configuration
 
 Use the following settings in OBS to stream to your streaming bridge.
 
