@@ -191,7 +191,7 @@ hostname -I
 Start up texts are visible when you boot the Raspberry Pi. Good thing is you see everything is working, but texts are visible on HDMI output also. This may be unwanted behaviour. Also, if you stop streaming the latest screen before streaming is shown. Simple solution to make screen black is following. First you set prompt color to black, and clear screen. Input the following. Note that there is one annoying result: if you need to write something, you cannot see it because the text is black on black background. 
 
 ```
-PS1="\e[0;30m
+PS1="\e[0;30m"
 clear
 ```
 If you want to make this setting permanent, you can change the default prompt by editing '.bashrc' file which is used to configure your environment when you log in.
