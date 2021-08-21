@@ -1,6 +1,6 @@
 # raspberry-pi-streaming-bridge
 
-With streaming bridge you can receive RTMP stream e.g. from OBS and convert it to HDMI interface provided by Raspberry Pi 4. You have also option to stream to Youtube and Facebook, and record all streams. Setting up services you need to modify rtmp.conf
+With streaming bridge you can receive RTMP stream e.g. from OBS and convert it to HDMI interface provided by Raspberry Pi 4. You have also option to stream to Youtube and Facebook, and record all streams. You need to modify rtmp.conf to set up your service, but rtmp.conf is ready to use if you stream to your HDMI output.
 
 Steps
 1. Install Raspberry OS
@@ -110,26 +110,29 @@ sudo nginx -s reload
 
 ## Install and configure Stunnel
 
-Install
+Install stunnel to enable streaming to Facebook. The Facebook uses SRTMP which is not supported bu nginx, so we use Stunnel to add 'S' to 'RTMP'.
+
+Install the Stunnel
 ```
 sudo apt-get install stunnel4
 ```
-Configure
 
+Configure the Stunnel
 ```
 sudo nano /etc/default/stunnel4
 ```
-Add line 
+
+Add line (to be honest, I am sure if this is needed).
 ```
 ENABLED=1
 ```
 
-Create new file 
+Create new configuration file 
 ```
 sudo nano /etc/stunnel/stunnel.conf
 ```
 
-Add lines
+Add the following lines
 ```
 pid = /var/run/stunnel4/stunnel.pid
 output = /var/log/stunnel4/stunnel.log
@@ -181,6 +184,16 @@ Following can be used to find out the IP address of your Raspberry Pi
 ```
 hostname -I
 ```
+    
+## Troubleshooting
+
+See log files for the nginx
+```
+sudo tail /var/log/nginx/error.log -n 200
+sudo tail /var/log/nginx/access.log -n 200
+``` 
+    
+ 
 ## Resources
 Streaming bridge  https://www.youtube.com/watch?v=MtETl23cnOA
 Options for the HDMI are available at https://www.raspberrypi.org/documentation/computers/configuration.html#hdmi-configuration
