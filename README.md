@@ -5,8 +5,9 @@ With streaming bridge you can receive RTMP stream e.g. from OBS and convert it t
 Steps
 1. Install Raspberry OS
 2. Configure HDMI interface
-3. Installa and configure nginx
+3. Install and configure nginx
 4. Install and configure stunne4 for the Facebook streaming
+5. Automatically log in as 'pi' user. This applies only for local session. If you use SSH to log in to your Raspberry then you have to input user and password.
 
 # Install Raspberry Pi
 
@@ -184,6 +185,16 @@ Following can be used to find out the IP address of your Raspberry Pi
 ```
 hostname -I
 ```
+    
+## Fine tuning
+
+Start up texts are visible on when you boot the Raspberry Pi. Good thing is that you see that everything is working, but texts are visible on HDMI output also. This may be unwanted behaviour. Also, if you stop streaming the latest screen before streaming is shown. Simple solution to make screen black is following. First you set prompt color to black, and clear screen. Input the following. Note that there is one annoying result: if you need to write something, you cannot see it because the text is black on black backround. 
+
+```
+PS1="\e[0;30m
+clear
+```
+If you want to make this setting permanent, you can change the default prompt by editing '.bashrc' file which is used to configure your environment when you log in.
     
 ## Troubleshooting
 
