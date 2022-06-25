@@ -1,6 +1,6 @@
 # raspberry-pi-streaming-bridge
 
-With streaming bridge you can receive RTMP stream e.g. from OBS and convert it to HDMI interface provided by Raspberry Pi 4. You have also option to stream to Youtube and Facebook, and record all streams. You need to modify rtmp.conf to set up your service, but rtmp.conf is ready to use if you stream to your HDMI output.
+With streaming bridge you can receive RTMP stream e.g. from OBS and convert it to HDMI interface provided by Raspberry Pi 4. You have also option to stream to Youtube and Facebook, and record all streams. You need to modify rtmp.conf to set up your service for Youtube and Facebook, but rtmp.conf is ready to use if you stream to your HDMI output.
 
 Steps
 1. Install Raspberry OS
@@ -8,6 +8,11 @@ Steps
 3. Install and configure nginx
 4. Install and configure stunne4 for the Facebook streaming
 5. Automatically log in as 'pi' user. This applies only for local session. If you use SSH to log in to your Raspberry then you have to input user and password.
+
+# To do
+
+- Raspberry Pi 4 has two HDMI output and stream is outputted to the first HDMI port. HDMI cable should be attached before you boot up the Raspberry. Check if you can force output always to the HDMI port even if cable is not connected during the boot.
+- Add instructions for recording - streaming can be rorded also.
 
 # Install Raspberry Pi
 
@@ -172,7 +177,7 @@ Use the following settings in OBS to stream to your streaming bridge.
 Select File > Settings > Stream > 
 
 Service: Custom
-Server: rtmp://<IP-ADDRESS-OF-YOUR-RASPBERRY-PI>:1935/<facebok|youtube|hdmi>
+Server: rtmp://< IP-ADDRESS-OF-YOUR-RASPBERRY-PI >:1935/<facebook|youtube|hdmi>
 Streamkey: <anykey>
 
 Output: 
