@@ -14,7 +14,7 @@ Steps
 # To do
 
 - Raspberry Pi 4 has two HDMI output and stream is outputted to the first HDMI port. HDMI cable should be attached before you boot up the Raspberry. Check if you can force output always to the HDMI port even if cable is not connected during the boot.
-- Add instructions for recording - streaming can be rorded also.
+- Add instructions for recording - streaming can be recorded also.
 
 # Install Raspberry Pi
 
